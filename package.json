@@ -1,0 +1,17 @@
+{
+  "name": "gpt",
+  "version": "1.0.0",
+  "description": "A Bot with powered by ChatGPT API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "wixeria",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
+    "openai": "^4.12.4"
+  }
+}
