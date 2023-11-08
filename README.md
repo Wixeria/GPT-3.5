@@ -4,5 +4,8 @@
 - Then, open the main `CMD` and write the following commands: `npm install && node index.js`
 - Congratulations, your bot is now active 🎉
 
+# 🎩 | Star
+- If you like project, don't forget to star it. ❤️
+
 # ⚠ | Warning
 - It is strictly prohibited to copy, share, or claim ownership of this project elsewhere. It is protected under the `MIT` license.
