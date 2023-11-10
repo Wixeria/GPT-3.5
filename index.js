@@ -11,7 +11,7 @@ client.on('ready', () => {
 });
 
 const IGNORE_PREFIX = "!";
-const CHANNELS = ['1159180505950990358', '1167048711818461234'];
+const CHANNELS = ['ID OF THE CHANNELS WHERE THE BOT WILL WORK'];
 
 const openai = new OpenAI({
     apiKey: process.env.API_KEY
@@ -77,7 +77,7 @@ const response = await openai.chat.completions
    }
 
    const responseMessage = response.choices[0].message.content;
-   const chunkSizeLimit = 2000;
+   const chunkSizeLimit = 2000;   //DON'T CHANGE THIS PLACE
 
    for (let i = 0; i < responseMessage.length; i += chunkSizeLimit) {
     const chunk = responseMessage.substring(i, i + chunkSizeLimit);
