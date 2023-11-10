@@ -10,5 +10,5 @@
 # 🔒 | ChatGPT API
 - Visit the [link](https://platform.openai.com) and log in to your account. Then, on the left side, click on API Keys to create your API key!
 
-#  | Important
+# ⚠️ | Important
 - The bot is not functioning on certain platforms and web-based software services for reasons unknown to me. I recommend using VSC (Visual Studio Code).
