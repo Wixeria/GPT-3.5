@@ -43,7 +43,7 @@ client.on('messageCreate', async (message) => {
     if (msg.author.bot && msg.author.id !== client.user.id) return;
     if (msg.content.startsWith(IGNORE_PREFIX)) return;
 
-const username = msg.author.username.replace(/\s+/g, '_').replace(/[^\w\s]/gi, '');
+    const username = msg.author.username.replace(/\s+/g, '_').replace(/[^\w\s]/gi, '');
 
     if (msg.author.id === client.user.id) {
         conversation.push({
@@ -77,7 +77,7 @@ const response = await openai.chat.completions
    }
 
    const responseMessage = response.choices[0].message.content;
-   const chunkSizeLimit = 2000;  //DONT CHANGE THIS PLACE
+   const chunkSizeLimit = 2000;  //DON'T CHANGE THIS PLACE
 
    for (let i = 0; i < responseMessage.length; i += chunkSizeLimit) {
     const chunk = responseMessage.substring(i, i + chunkSizeLimit);
@@ -87,13 +87,4 @@ const response = await openai.chat.completions
 
 });
 
-client.on("ready", async () => {
-
-const { ActivityType } = require("discord.js")
-client.user.setActivity("You can ask me any question you want!", { 
-    type: ActivityType.Streaming, 
-    url: "UR TWITCH CHANNEL LINK"
-})
-    
-})
-
+client.login(process.env.TOKEN);
