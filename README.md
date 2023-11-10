@@ -7,7 +7,7 @@
 # 🎩 | Star
 - If you like project, don't forget to star it. ❤️
 
-#  | ChatGPT API
+# 🔒 | ChatGPT API
 - Visit the [link](https://platform.openai.com) and log in to your account. Then, on the left side, click on API Keys to create your API key!
 
 # ⚠ | Warning
