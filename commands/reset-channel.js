@@ -15,7 +15,7 @@ module.exports = {
         }
 
         if (!interaction.member.permissions.has("ADMINISTRATOR")) {
-            return interaction.reply("You must be an administrator to use this command.");
+            return interaction.reply("You must be an `Administrator` to use this command.");
         }
 
         let allKeys = wixdb.all();
