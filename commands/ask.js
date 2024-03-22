@@ -20,7 +20,7 @@ module.exports = {
 
       let data = wixdb.get(`chatgpt_${interaction.guild.id}`);
       if (!data) {
-          return interaction.reply({ content: "Dostum **__ChatGPT__** ayarlanmamış.", ephemeral: true });
+          return interaction.reply({ content: "Can't find channel for ChatGPT. Did you set channel for ChatGPT?", ephemeral: true });
       }
 
       let allowedChannelId = data.channel;
@@ -53,45 +53,5 @@ module.exports = {
       if (!response) {
           return interaction.reply("I'm having some trouble with the OpenAI API. Try again in a moment.");
       }
-
-      const responseMessage = response.choices[0].message.content;
-      const chunkSizeLimit = 2000;
-
-      const chunkString = (str, chunkSize) => {
-        const chunks = [];
-        for (let i = 0; i < str.length; i += chunkSize) {
-          chunks.push(str.slice(i, i + chunkSize));
-        }
-        return chunks;
-      };
-
-      const messageChunks = chunkString(responseMessage, chunkSizeLimit);
-
-      for (const chunk of messageChunks) {
-        await interaction.reply(chunk);
-      }
     }
 };
-
-async function replyInChunks(interaction, response, client) {
-  const responseMessage = response.choices[0].message.content;
-  const chunkSizeLimit = 2000;
-  const chunkString = (str, chunkSize) => {
-    const chunks = [];
-    for (let i = 0; i < str.length; i += chunkSize) {
-      chunks.push(str.slice(i, i + chunkSize));
-    }
-    return chunks;
-  };
-  const messageChunks = chunkString(responseMessage, chunkSizeLimit);
-  if (messageChunks.length > 1) {
-    const user = await client.users.fetch(interaction.user.id);
-    await user.send("Your message was too long to send in the channel. Here's the response:");
-  }
-  for (const chunk of messageChunks) {
-    await interaction.reply(chunk);
-  }
-}
-
-// Call the function
-replyInChunks(interaction, response, client);
