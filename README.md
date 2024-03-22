@@ -1,3 +1,8 @@
+# ✨ | New Update! What's news?
+- Now you can manually set chatting channel from Discord!
+- You can reset ChatGPT's channel if you want!
+- In chatting channel you can use `/ask` command for question!
+
 # 🎬 | Getting Started
 - First, download the project (**via git** or **manual download**).
 - Open the project and fill in the required information in the `.env and index.js` files.
