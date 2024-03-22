@@ -1,36 +1,28 @@
-const wixdb = require("croxydb");
-
+const { Client, EmbedBuilder, PermissionsBitField } = require("discord.js");
+const wixdb = require("croxydb")
+const Discord = require("discord.js")
 module.exports = {
     name: "reset-settings",
-    description: "Reset channel for ChatGPT.",
-    options: [],
+    description: "Reset ChatGPT's channel.",
     type: 1,
-
+    options: [],
+  
     run: async (client, interaction) => {
-        const guildId = interaction.guild.id;
-        const data = wixdb.get(`chatgpt_${guildId}`);
 
-        if (!data) {
-            return interaction.reply("There's no data for this server.");
-        }
+        const permission = new Discord.EmbedBuilder()
+            .setColor("Red")
+            .setDescription("You need to have `ManageChannels` permission to use this command.")
 
-        if (!interaction.member.permissions.has("ADMINISTRATOR")) {
-            return interaction.reply("You must be an `Administrator` to use this command.");
-        }
+        const chatchannel = interaction.options.getChannel('channel')
+        if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) return interaction.reply({ embeds: [permission], ephemeral: true })
 
-        let allKeys = wixdb.all();
+        const basarili = new EmbedBuilder()
+            .setColor("Green")
+            .setDescription(`Chat channel has been reset succesfully.`)
 
-        // Check if allKeys is an object, convert it to an array if needed
-        if (allKeys && typeof allKeys === "object") {
-            allKeys = Object.keys(allKeys);
-        }
+        wixdb.delete(`chatgpt_${interaction.guild.id}`)
+        return interaction.reply({ embeds: [basarili], ephemeral: true }).catch((e) => { })
 
-        allKeys.forEach(key => {
-            if (key.includes(guildId)) {
-                wixdb.delete(key);
-            }
-        });
-
-        return interaction.reply("ChatGPT's channel has been reset succesfully.");
     }
+
 };
