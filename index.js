@@ -13,7 +13,6 @@ const wixdb = require("croxydb")
 global.client = client;
 client.commands = (global.commands = []);
 const { readdirSync } = require("fs")
-const { OpenAI2 } = require("timers");
 readdirSync('./commands').forEach(f => {
     if (!f.endsWith(".js")) return;
 
@@ -38,7 +37,7 @@ readdirSync('./events').forEach(e => {
     client.on(name, (...args) => {
         eve(client, ...args)
     });
-    console.log(`[EVENT] ${name} command loaded.`)
+    console.log(`[EVENT] ${name} event loaded.`)
 });
 
 const mySecret = process.env['TOKEN']
