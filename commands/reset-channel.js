@@ -1,4 +1,5 @@
 const wixdb = require("croxydb");
+const Discord = require('discord.js');
 
 module.exports = {
     name: "reset-settings",
@@ -11,7 +12,17 @@ module.exports = {
         const data = wixdb.get(`chatgpt_${guildId}`);
 
         if (!data) {
-            return interaction.reply("There's no data for this server.");
+            const fail = new Discord.EmbedBuilder()
+          .setColor("Red")
+          .setDescription("How can i register channel for ChatGPT?")
+          .setTitle("<:ur_emoji_name_here:1234567890> Chat channel data is not registered.")
+          .addFields(
+            { name: '<ur_emoji_name_here:1234567890> Setting channel', value: '<:botbadge:1220484006462750820> Use /set-chatgpt command', inline: true },
+            { name: '<:ur_emoji_name_here:1234567890> Reset channel', value: '<:botbadge:1220484006462750820> Use /reset-settings command for reset.', inline: true },
+                    )
+          .setTimestamp()
+          
+          return interaction.reply({ embeds: [fail], ephemeral: true }).catch((e) => { })
         }
 
         if (!interaction.member.permissions.has("ADMINISTRATOR")) {
@@ -31,6 +42,9 @@ module.exports = {
             }
         });
 
-        return interaction.reply("ChatGPT's channel has been reset succesfully.");
+        const succes = new Discord.EmbedBuilder()
+        .setColor("Green")
+        .setTitle("<:ur_emoji_name_here:1234567890> | Settings reset succesfully")
+        return interaction.reply({ embeds: [succes], ephemeral: true }).catch((e) => { })
     }
 };
