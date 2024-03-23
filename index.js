@@ -13,7 +13,7 @@ const wixdb = require("croxydb")
 global.client = client;
 client.commands = (global.commands = []);
 const { readdirSync } = require("fs")
-const { OpenAI } = require("timers");
+const { OpenAI2 } = require("timers");
 readdirSync('./commands').forEach(f => {
     if (!f.endsWith(".js")) return;
 
