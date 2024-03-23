@@ -17,8 +17,8 @@ module.exports = {
           .setDescription("How can i register channel for ChatGPT?")
           .setTitle("<:ur_emoji_name_here:1234567890> Chat channel data is not registered.")
           .addFields(
-            { name: '<ur_emoji_name_here:1234567890> Setting channel', value: '<:botbadge:1220484006462750820> Use /set-chatgpt command', inline: true },
-            { name: '<:ur_emoji_name_here:1234567890> Reset channel', value: '<:botbadge:1220484006462750820> Use /reset-settings command for reset.', inline: true },
+            { name: '<ur_emoji_name_here:1234567890> Setting channel', value: '<:ur_emoji_name_here:1234567890> Use /set-chatgpt command', inline: true },
+            { name: '<:ur_emoji_name_here:1234567890> Reset channel', value: '<:ur_emoji_name_here:1234567890> Use /reset-settings command for reset.', inline: true },
                     )
           .setTimestamp()
           
