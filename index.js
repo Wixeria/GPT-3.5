@@ -27,7 +27,7 @@ readdirSync('./commands').forEach(f => {
         type: 1
     });
 
-    console.log(`[COMMAND] ${props.name} komutu yüklendi.`)
+    console.log(`[COMMAND] ${props.name} command loaded.`)
   
 });
 readdirSync('./events').forEach(e => {
@@ -38,7 +38,7 @@ readdirSync('./events').forEach(e => {
     client.on(name, (...args) => {
         eve(client, ...args)
     });
-    console.log(`[EVENT] ${name} eventi yüklendi.`)
+    console.log(`[EVENT] ${name} command loaded.`)
 });
 
 const mySecret = process.env['TOKEN']
