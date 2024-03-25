@@ -42,24 +42,11 @@ module.exports = {
           .catch((error) => console.error('OpenAI Error:\n', error));
 
       if (!response) {
-          return interaction.reply("I'm having some trouble with the OpenAI API. Try again in a moment.");
+          try {
+              return interaction.reply("I'm having some trouble with the OpenAI API. Try again in a moment.");
+          } catch (error) {
+              console.error('Error replying to interaction:', error);
+          }
       }
-
-      const responseMessage = response.choices[0].message.content;
-      const chunkSizeLimit = 2000;
-
-      const chunkString = (str, chunkSize) => {
-        const chunks = [];
-        for (let i = 0; i < str.length; i += chunkSize) {
-          chunks.push(str.slice(i, i + chunkSize));
-        }
-        return chunks;
-      };
-
-      const messageChunks = chunkString(responseMessage, chunkSizeLimit);
-
-      for (const chunk of messageChunks) {
-        await interaction.reply(chunk);
-      }
-   }
+    }
 };
