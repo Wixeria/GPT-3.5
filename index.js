@@ -40,6 +40,4 @@ readdirSync('./events').forEach(e => {
     console.log(`[EVENT] ${name} event loaded.`)
 });
 
-const mySecret = process.env['TOKEN']
-
-client.login(mySecret)
+client.login(process.env.TOKEN)
