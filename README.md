@@ -1,9 +1,3 @@
-# OUTDATED
-
-
-
-
-
 # ✨ | New Update! What's news?
 - Now you can manually set chatting channel from Discord!
 - You can reset ChatGPT's channel if you want!
